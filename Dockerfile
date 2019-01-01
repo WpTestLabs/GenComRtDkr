@@ -1,6 +1,6 @@
 FROM alpine
 LABEL repo github.com/WpTestLabs/GenComRtDkr
-LABEL maintainer WpTestLabs <_____@gmail.com>
+LABEL maintainer WpTestLabs <_____@gmail.com> 
 
 ENV RCLONE_VERSION=current
 ENV ARCH=amd64
