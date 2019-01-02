@@ -18,7 +18,5 @@ RUN unzip  /tmp/rclone-${RCLONE_VERSION}-linux-${ARCH}.zip -d /tmp/rcln \
 && rm -r /tmp/rclone*  /tmp/rcln* \
 && addgroup rclone && adduser -h /config -s /bin/ash -G rclone -D rclone 
 
-RUN  pip install --upgrade pip &&   pip install s3cmd zip
-
 
 CMD /bin/sh
