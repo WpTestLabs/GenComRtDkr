@@ -12,7 +12,7 @@ RUN apk --update add  	curl  git openssl  rsync tar  unzip  \
 RUN cd /tmp \
 && wget -q http://downloads.rclone.org/rclone-${RCLONE_VERSION}-linux-${ARCH}.zip 
 
-RUN unzip /tmp/rclone-${RCLONE_VERSION}-linux-${ARCH}.zip && ls -al /tmp
+RUN unzip -v /tmp/rclone-${RCLONE_VERSION}-linux-${ARCH}.zip && ls -al /tmp
 RUN mv /tmp/rclone-*-linux-${ARCH}/rclone /usr/bin \
 && rm -r /tmp/rclone* \
 && addgroup rclone && adduser -h /config -s /bin/ash -G rclone -D rclone 
