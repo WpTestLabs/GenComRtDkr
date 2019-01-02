@@ -6,7 +6,7 @@ ENV RCLONE_VERSION=current
 ENV ARCH=amd64
 
 RUN apk --update add  	curl  git openssl  rsync tar  unzip  \
-    gnupg      pwgen haveged  ca-certificates fuse wget \
+    gnupg      pwgen haveged  ca-certificates fuse wget  py-pip \
 &&  rm -rf /var/lib/apt/lists/* && rm /var/cache/apk/*
 	
 RUN mkdir -p /tmp/rcln && cd /tmp \
@@ -18,7 +18,7 @@ RUN unzip  /tmp/rclone-${RCLONE_VERSION}-linux-${ARCH}.zip -d /tmp/rcln \
 && rm -r /tmp/rclone*  /tmp/rcln* \
 && addgroup rclone && adduser -h /config -s /bin/ash -G rclone -D rclone 
 
-RUN py-pip &&  pip install --upgrade pip &&   pip install s3cmd zip
+RUN  pip install --upgrade pip &&   pip install s3cmd zip
 
 
 CMD /bin/sh
