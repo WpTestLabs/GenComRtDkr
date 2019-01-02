@@ -6,9 +6,9 @@ ENV RCLONE_VERSION=current
 ENV ARCH=amd64
 
 RUN apk --update add  	curl  git openssl  rsync tar  \
-	  gnupg  \
-	  pwgen haveged  \
-	py-pip &&  pip install s3cmd zip unzip
+    gnupg  \
+    pwgen haveged  \
+    py-pip &&  pip install s3cmd zip
 	
 RUN apk --no-cache add ca-certificates fuse wget \
 && cd /tmp \
