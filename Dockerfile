@@ -9,11 +9,11 @@ RUN apk --update add  	curl  git openssl  rsync tar  unzip  \
     gnupg      pwgen haveged  ca-certificates fuse wget \
 &&  rm -rf /var/lib/apt/lists/* && rm /var/cache/apk/*
 	
-RUN cd /tmp \
+RUN mkdir -p /tmp/rcln && cd /tmp \
 && wget -q http://downloads.rclone.org/rclone-${RCLONE_VERSION}-linux-${ARCH}.zip 
 
-RUN unzip -v /tmp/rclone-${RCLONE_VERSION}-linux-${ARCH}.zip && ls -al /tmp
-RUN mv /tmp/rclone-*-linux-${ARCH}/rclone /usr/bin \
+RUN unzip -v /tmp/rclone-${RCLONE_VERSION}-linux-${ARCH}.zip -d /tmp/rcln && ls -al /tmp/rcln
+RUN mv /tmp/rcln/rclone /usr/bin \
 && rm -r /tmp/rclone* \
 && addgroup rclone && adduser -h /config -s /bin/ash -G rclone -D rclone 
 
